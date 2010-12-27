@@ -1,6 +1,15 @@
 = bio-assembly
 
-Description goes here.
+BioRuby plugin for parsing, writing, and maniuplating assembly data
+
+== Install
+
+gem install bio-assembly
+
+== Usage
+
+Examples on my blog:
+http://chasemiller4.blogspot.com/2010/10/bioruby-ace-parser-example.html
 
 == Contributing to bio-assembly
  
