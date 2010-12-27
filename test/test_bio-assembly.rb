@@ -4,7 +4,7 @@ class TestBioAssembly < Test::Unit::TestCase
 
      def setup
        ace_filename = File.join('data', 'example1.ace')
-       @obj = Bio::Assembly.new(ace_filename)
+       @obj = Bio::Assembly.create(ace_filename, :ace)
 
        # pick a contig to do in depth tests on
        @contig = nil
