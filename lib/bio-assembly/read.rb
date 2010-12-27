@@ -1,10 +1,9 @@
 
-require 'bio-assembly/read/ace'
+#require 'bio-assembly/read/ace'
 
 module Bio
   class Assembly
     class Read 
-      include Bio::Assembly::Read::Ace
       
       attr_accessor :seq, :name, :orientation, :from, :to, :clear_range_from, :clear_range_to
       def initialize(str="")

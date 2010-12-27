@@ -1,10 +1,9 @@
-require 'bio-assembly/contig/ace'
+#require 'bio-assembly/contig/ace'
 
 module Bio
   class Assembly
     
     class Contig 
-      include Bio::Assembly::Contig::Ace
       attr_accessor :seq, :orientation, :quality, :to, :from, :name, :reads
       alias consensus_seq seq
 
