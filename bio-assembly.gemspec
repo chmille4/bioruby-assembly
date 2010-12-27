@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Chase Miller"]
   s.date = %q{2010-12-27}
-  s.description = %q{TODO: longer description of your gem}
+  s.description = %q{provides functionality to parse, write, and manipulate assembly data}
   s.email = %q{chmille4@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -19,11 +19,17 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
     "Gemfile",
+    "Gemfile.lock",
     "LICENSE.txt",
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "bio-assembly.gemspec",
+    "data/example1.ace",
     "lib/bio-assembly.rb",
+    "lib/bio-assembly/contig.rb",
+    "lib/bio-assembly/read.rb",
+    "lib/bio-assembly/read/ace.rb",
     "test/helper.rb",
     "test/test_bio-assembly.rb"
   ]
@@ -31,7 +37,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
-  s.summary = %q{TODO: one-line summary of your gem}
+  s.summary = %q{BioRuby Assembly plugin}
   s.test_files = [
     "test/helper.rb",
     "test/test_bio-assembly.rb"
