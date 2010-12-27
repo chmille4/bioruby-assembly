@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{bio-assembly}
-  s.version = "0.0.0"
+  s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Chase Miller"]
@@ -27,9 +27,9 @@ Gem::Specification.new do |s|
     "bio-assembly.gemspec",
     "data/example1.ace",
     "lib/bio-assembly.rb",
+    "lib/bio-assembly/ace.rb",
     "lib/bio-assembly/contig.rb",
     "lib/bio-assembly/read.rb",
-    "lib/bio-assembly/read/ace.rb",
     "test/helper.rb",
     "test/test_bio-assembly.rb"
   ]
