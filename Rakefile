@@ -16,7 +16,7 @@ Jeweler::Tasks.new do |gem|
   gem.homepage = "http://github.com/chmille4/bioruby-assembly"
   gem.license = "MIT"
   gem.summary = "BioRuby Assembly plugin"
-  gem.description = "provides functionality to parse, write, and manipulate assembly data"
+  gem.description = "bioruby plugin to parse, write, and manipulate assembly data"
   gem.email = "chmille4@gmail.com"
   gem.authors = ["Chase Miller"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,
