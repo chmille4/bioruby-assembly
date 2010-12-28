@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Chase Miller"]
   s.date = %q{2010-12-27}
-  s.description = %q{provides functionality to parse, write, and manipulate assembly data}
+  s.description = %q{bioruby plugin to parse, write, and manipulate assembly data}
   s.email = %q{chmille4@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE.txt",
