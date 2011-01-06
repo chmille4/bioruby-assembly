@@ -4,11 +4,15 @@ class TestBioAssembly < Test::Unit::TestCase
 
      def setup
        ace_filename = File.join('data', 'example1.ace')
-       @obj = Bio::Assembly.create(ace_filename, :ace)
+       @obj = Bio::Assembly.open(ace_filename, :ace)
 
        # pick a contig to do in depth tests on
        @contig = nil
-       @obj.each_contig { |c| @contig = c if c.name.to_i == 5 }
+       @tot_contig = []
+       @obj.each_contig do |c| 
+         @contig = c if c.name.to_i == 5 
+         @tot_contig << c
+       end   
 
        # pick a read to do in depth tests on
        @read = nil
@@ -17,13 +21,13 @@ class TestBioAssembly < Test::Unit::TestCase
 
      def test_num_contigs_parsed
        contigs_parsed = 13
-       assert_equal(contigs_parsed, @obj.contigs.size)
+       assert_equal(contigs_parsed, @tot_contig.size)
      end
 
      def test_num_reads_parsed
        reads_parsed_known = 1760
        reads_parsed = 0
-       @obj.contigs.each { |c| reads_parsed += c.reads.size }
+       @tot_contig.each { |c| reads_parsed += c.reads.size }
        assert_equal(reads_parsed_known, reads_parsed)
      end
 
