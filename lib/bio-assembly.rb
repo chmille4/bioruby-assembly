@@ -5,11 +5,10 @@ require 'bio-assembly/read'
 module Bio
 
    class Assembly
-      attr_accessor :contigs
-      
+           
       @@formats = { }
     
-      def self.create(path, format)
+      def self.open(path, format)
          streamer = @@formats[format]
          if streamer
             streamer.new(path)
@@ -22,21 +21,11 @@ module Bio
          @@formats[name] = self
       end
       
-      def contigs
-        # use each_contig to stream large files
-        parse_whole_file if @contigs.empty?
-        @contigs
-      end
-      
       def each_contig
          # implemented by each format subclass
       end
       
       private
-      
-      def num_contigs
-        contigs.size
-      end
 
       def num_reads
         read_num = 0

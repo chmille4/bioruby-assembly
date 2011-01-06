@@ -9,22 +9,15 @@ class Assembly
 
       def initialize(path)
          @file = File.new(path, 'r') 
-         @contigs = Array.new
          parse_as
        end
 
       def each_contig
-        # check if file is already parsed
-        if @total_num_contigs.to_i == @contigs.size
-          @contigs.each{ |contig| yield contig }
-        else
           each_identifier do |identifier, attrs|
             next unless identifier == 'CO'
             contig = parse_contig(attrs)
-            @contigs.push contig
             yield(contig)   
           end
-        end
       end
 
       def to_ace
