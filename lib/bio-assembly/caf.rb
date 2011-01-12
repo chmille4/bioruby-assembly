@@ -38,9 +38,10 @@ module Bio
       private
       
       def parse_blocks(line,feat)
-        case true
-          when line.start_with?("DNA") then parse_dna(feat)
-          when line.start_with?("Sequence") then parse_seq(feat,line)
+        keywords = line.split("\s")
+        case keywords[0]
+          when "DNA" then parse_dna(feat)
+          when "Sequence" then parse_seq(feat,line)
         end  
         return feat
       end
@@ -58,12 +59,13 @@ module Bio
         feat[:name] = line.split(":")[1].tr("\s|\n","")
         sequence_block = @file.gets("\n\n")
         sequence_block.split("\n").each do |l|
-          case true
-            when l.start_with?("Clipping") then parse_clipping(feat,l)
-            when l.start_with?("Strand") then parse_strand(feat,l)
-            when l.start_with?("Assembled_from") then parse_af(feat,l)
-            when l.start_with?("Is_read") then feat[:type] = :read
-            when l.start_with?("Is_contig") then feat[:type] = :contig
+          keywords = l.split("\s")
+          case keywords[0]
+            when "Clipping" then parse_clipping(feat,l)
+            when "Strand" then parse_strand(feat,l)
+            when "Assembled_from" then parse_af(feat,l)
+            when "Is_read" then feat[:type] = :read
+            when "Is_contig" then feat[:type] = :contig
           end
         end
         feat[:parsed] = true if feat[:type] == :read
