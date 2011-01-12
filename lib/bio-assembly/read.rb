@@ -26,6 +26,10 @@ module Bio
         @to = new_to.to_i
       end
       
+      def seq=(str)
+        @seq = Bio::Sequence::NA.new(str)
+      end
+      
       def clear_range_from=(new_clear_range_from)
         @clear_range_from = new_clear_range_from.to_i
       end

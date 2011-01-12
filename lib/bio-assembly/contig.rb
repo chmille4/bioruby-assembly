@@ -10,7 +10,7 @@ module Bio
       def initialize(str="")
         @reads = Hash.new
         @seq = Bio::Sequence::NA.new(str)
-        # counter for RD identifier
+        # counter for Reads
         @rds_parsed = 0
       end
 
@@ -52,6 +52,10 @@ module Bio
       
       def num_bases
         seq.length
+      end
+      
+      def seq=(str)
+        @seq = Bio::Sequence::NA.new(str)
       end
       
       def num_base_segments
