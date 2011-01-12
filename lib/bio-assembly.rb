@@ -42,3 +42,4 @@ module Bio
 end
 
 require 'bio-assembly/ace'
+require 'bio-assembly/caf'
