@@ -1,6 +1,6 @@
 require 'helper'
 
-class TestBioAssembly < Test::Unit::TestCase
+class TestBioAssemblyAce < Test::Unit::TestCase
 
      def setup
        ace_filename = File.join('data', 'example1.ace')
