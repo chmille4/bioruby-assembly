@@ -13,6 +13,7 @@ class TestBioAssemblyCaf < Test::Unit::TestCase
     assert_equal(2,@contigs.size)
     assert_equal('Contig1',@contigs[0].name)
     assert_equal('Contig2',@contigs[1].name)
+    assert_instance_of(Bio::Assembly::Caf::Contig,@contigs[0])
   end
   
   def test_read_per_contig
@@ -46,6 +47,7 @@ class TestBioAssemblyCaf < Test::Unit::TestCase
     assert_equal(1,read.from)
     assert_equal(293,read.to)
     assert_equal("Reverse",read.orientation)
+    assert_instance_of(Bio::Assembly::Caf::Read,read)
   end
   
   
