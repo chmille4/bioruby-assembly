@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "bio-assembly.gemspec",
     "data/example.caf",
     "data/example1.ace",
     "lib/bio-assembly.rb",
