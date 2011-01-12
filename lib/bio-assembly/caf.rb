@@ -8,12 +8,12 @@ module Bio
       def initialize(path)
          @file = File.new(path, 'r') 
       end
-      
+      # iterator that return one contig at a time
       def each_contig
         contig = Contig.new
         feature = Hash.new
         @file.each do |line|
-          feature = parse_blocks(line,feature)
+          feature = parse_blocks(line,feature) # search the file for CAF blocks like DNA and Sequence
           if feature[:type] == :read and feature[:parsed]
             read = convert_to_read(feature)
             contig.add_read(read)
@@ -45,6 +45,7 @@ module Bio
         return feat
       end
       
+      # parse DNA sequence and BaseQuality
       def parse_dna(feat)
         feat[:seq] = @file.gets("\n\n").tr("\n","")
         newline = @file.gets
@@ -52,6 +53,7 @@ module Bio
         feat[:parsed] = true if feat[:type] == :contig
       end
       
+      # parse Sequence information like Name, Clipping, Strand and Type
       def parse_seq(feat,line)
         feat[:name] = line.split(":")[1].tr("\s|\n","")
         sequence_block = @file.gets("\n\n")
@@ -67,16 +69,19 @@ module Bio
         feat[:parsed] = true if feat[:type] == :read
       end
       
+      # parse read coordinates for quality clipping
       def parse_clipping(feat,line)
         val = line.chomp.split("\s")
         feat[:clipping_start] = val[-2]
         feat[:clipping_end] = val[-1]
       end
       
+      # parse sequence strand information
       def parse_strand(feat,line)
         feat[:orientation] = line.split("\s")[1].tr("\n","")
       end
       
+      # parse Assembled_from lines in Contig. These lines also include read alignment positions within the contig
       def parse_af(feat,line)
         if feat[:af].nil?
           feat[:af] = [line]
@@ -85,6 +90,7 @@ module Bio
         end    
       end
 
+      # convert a generic feature into a Caf::Read object
       def convert_to_read(feature)
         read = Read.new
         read.name = feature[:name]
@@ -96,6 +102,7 @@ module Bio
         return read       
       end
       
+      # convert a generic feature into a Caf::Contig object
       def convert_to_contig(contig,feature)
         contig.name = feature[:name]
         contig.seq = feature[:seq]
