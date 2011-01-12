@@ -8,10 +8,10 @@ Gem::Specification.new do |s|
   s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Chase Miller"]
+  s.authors = ["Chase Miller","Francesco Strozzi"]
   s.date = %q{2010-12-27}
   s.description = %q{bioruby plugin to parse, write, and manipulate assembly data}
-  s.email = %q{chmille4@gmail.com}
+  s.email = %q{chmille4@gmail.com francesco.strozzi@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
@@ -33,7 +33,7 @@ Gem::Specification.new do |s|
     "test/helper.rb",
     "test/test_bio-assembly.rb"
   ]
-  s.homepage = %q{http://github.com/chmille4/bioruby-assembly}
+  s.homepage = %q{http://github.com/fstrozzi/bioruby-assembly}
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}

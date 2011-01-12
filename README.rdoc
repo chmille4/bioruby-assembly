@@ -1,6 +1,7 @@
 = bio-assembly
 
 BioRuby plugin for parsing, writing, and maniuplating assembly data
+Currently supports ACE and CAF format
 
 == Install
 
@@ -23,6 +24,6 @@ http://chasemiller4.blogspot.com/2010/10/bioruby-ace-parser-example.html
 
 == Copyright
 
-Copyright (c) 2010 Chase Miller. See LICENSE.txt for
+Copyright (c) 2010 Chase Miller and Francesco Strozzi. See LICENSE.txt for
 further details.
 
