@@ -10,8 +10,46 @@ gem install bio-assembly
 
 == Usage
 
-Examples on my blog:
-http://chasemiller4.blogspot.com/2010/10/bioruby-ace-parser-example.html
+ require 'bio-assembly'
+ 
+ # ace file path
+ asm = Bio::Assembly.new("data.ace", :ace)
+ 
+ # iterate through contigs (streams each contig)
+ asm.each_contig do |contig|
+  
+   # print name and consensus seq
+   puts contig.name
+   puts contig.consensus_seq
+  
+   # iterate through reads
+   contig.each_read do |read|
+      
+      # print name, sequence and orientation
+      puts read.name
+      puts read.seq
+      puts read.orientation
+     
+      # print the postion of the read
+      # in relation to the consensus seq
+      puts read.from
+      puts read.to
+     
+      # print the portion of the read
+      # that was used to create the consensus
+      puts read.clear_range_from
+      puts read.clear_range_to
+     
+   end
+  
+   # grab the reads that make up a particular region of the contig
+   reads_in_region = contig.find_reads_in_range(10, 50)
+  
+ end
+ 
+ # experimental - output ace
+ file = File.new('out.ace', 'w')
+ file.puts asm.to_ace
 
 == Contributing to bio-assembly
  
