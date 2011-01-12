@@ -25,6 +25,6 @@ http://chasemiller4.blogspot.com/2010/10/bioruby-ace-parser-example.html
 
 == Copyright
 
-Copyright (c) 2010 Chase Miller and Francesco Strozzi. See LICENSE.txt for
+Copyright (c) 2011 Chase Miller and Francesco Strozzi. See LICENSE.txt for
 further details.
 
