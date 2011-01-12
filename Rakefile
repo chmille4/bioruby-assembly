@@ -18,7 +18,7 @@ Jeweler::Tasks.new do |gem|
   gem.summary = "BioRuby Assembly plugin"
   gem.description = "bioruby plugin to parse, write, and manipulate assembly data"
   gem.email = "chmille4@gmail.com"
-  gem.authors = ["Chase Miller"]
+  gem.authors = ["Chase Miller","Francesco Strozzi"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,
   # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
   #  gem.add_runtime_dependency 'jabber4r', '> 0.1'

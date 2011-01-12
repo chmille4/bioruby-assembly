@@ -33,7 +33,7 @@ Gem::Specification.new do |s|
     "test/helper.rb",
     "test/test_bio-assembly.rb"
   ]
-  s.homepage = %q{http://github.com/fstrozzi/bioruby-assembly}
+  s.homepage = %q{http://github.com/chmille4/bioruby-assembly}
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
