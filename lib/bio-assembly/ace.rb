@@ -28,8 +28,9 @@ class Assembly
       end
 
       private
+      
       def parse_contig(attrs)
-        contig = Bio::Assembly::Contig.new
+        contig = Contig.new
         contig.name, base_num, @num_reads, base_segments_num, contig.orientation = attrs.split(" ")
         # keep track of the number of RD identifiers parsed
         @num_rds_parsed = 0
@@ -76,7 +77,7 @@ class Assembly
 
       # parse read meta data
       def parse_af(contig, attrs)
-        read = Bio::Assembly::Read.new
+        read = Read.new
         read.name , read.orientation, read.from = attrs.split(" ")
         contig.add_read read
       end
@@ -132,11 +133,9 @@ class Assembly
       # parse run meta data - ignored
       def parse_ct(contig, attrs)
       end
-
-   end # => end class Ace
    
-   # open contig class and write ace specific methods for contig objects         
-   class Contig
+   # extend contig class and write ace specific methods for contig objects         
+    class Contig < Bio::Assembly::Contig
 
       def to_ace
         ace = ""
@@ -169,10 +168,10 @@ class Assembly
         ace
       end
          
-   end # => end Contig class
+    end # => end Contig class
    
-   # open Read class to add ace specific methods for read objects
-   class Read
+    # extend Read class to add ace specific methods for read objects
+    class Read < Bio::Assembly::Read
 
      attr_accessor :base_sequences
   
@@ -231,7 +230,7 @@ class Assembly
         end
     
         def <=>(other)
-           unless other.kind_of?(Bio::Assembly::Read::BaseSequence)
+           unless other.kind_of?(Bio::Assembly::AceRead::BaseSequence)
               raise "[Error] markers are not comparable"
            end
            if self.from == other.from
@@ -244,8 +243,8 @@ class Assembly
   
       end # => end BaseSequence Class
 
-   end # => end Read Class
-   
+    end # => end Read Class
+  end # => end class Ace 
 
 end # => end class Assembly
 end # => end module Bio
