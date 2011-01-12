@@ -230,7 +230,7 @@ class Assembly
         end
     
         def <=>(other)
-           unless other.kind_of?(Bio::Assembly::AceRead::BaseSequence)
+           unless other.kind_of?(Bio::Assembly::Ace::Read::BaseSequence)
               raise "[Error] markers are not comparable"
            end
            if self.from == other.from
