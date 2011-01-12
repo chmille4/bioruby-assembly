@@ -50,7 +50,8 @@ module Bio
       def parse_dna(feat)
         feat[:seq] = @file.gets("\n\n").tr("\n","")
         newline = @file.gets
-        feat[:qual] = @file.gets("\n\n").tr("\n"," ").rstrip if newline.start_with?("BaseQuality")
+        keywords = newline.split("\s")
+        feat[:qual] = @file.gets("\n\n").tr("\n"," ").rstrip if keywords[0] == "BaseQuality"
         feat[:parsed] = true if feat[:type] == :contig
       end
       
