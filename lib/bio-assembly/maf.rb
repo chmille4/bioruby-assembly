@@ -7,7 +7,7 @@ module Bio
 
       def initialize(path)
          @file = File.new(path, 'r') 
-         
+         # TO DO
       end
 
     end # end Maf
