@@ -13,7 +13,7 @@ gem install bio-assembly
  require 'bio-assembly'
  
  # ace file path
- asm = Bio::Assembly.new("data.ace", :ace)
+ asm = Bio::Assembly.open("data.ace", :ace)
  
  # iterate through contigs (streams each contig)
  asm.each_contig do |contig|
