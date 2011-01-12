@@ -48,7 +48,7 @@ module Bio
       def parse_dna(feat)
         feat[:seq] = @file.gets("\n\n").tr("\n","")
         newline = @file.gets
-        feat[:qual] = @file.gets("\n\n").tr("\n","") if newline.start_with?("BaseQuality")
+        feat[:qual] = @file.gets("\n\n").tr("\n"," ").rstrip if newline.start_with?("BaseQuality")
         feat[:parsed] = true if feat[:type] == :contig
       end
       
@@ -56,7 +56,6 @@ module Bio
         feat[:name] = line.split(":")[1].tr("\s|\n","")
         sequence_block = @file.gets("\n\n")
         sequence_block.split("\n").each do |l|
-          puts l
           case true
             when l.start_with?("Clipping") then parse_clipping(feat,l)
             when l.start_with?("Strand") then parse_strand(feat,l)
@@ -101,9 +100,8 @@ module Bio
         contig.name = feature[:name]
         contig.seq = feature[:seq]
         contig.quality = feature[:qual]
-        # fixing reads ranges using Assembled_from lines in Contig
+        # assign reads ranges using Assembled_from lines in Contig
         feature[:af].each do |af|
-          puts af
           val = af.split("\s")
           contig.reads[val[-5]].from = val[-4]
           contig.reads[val[-5]].to = val[-3]
